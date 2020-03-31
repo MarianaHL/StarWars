@@ -2,6 +2,10 @@
 
 > My fantabulous Nuxt.js project
 
+## Rquisitos de instalación
+Versión de node js mayor o igual a 12
+
+
 ## Build Setup
 
 ```bash
