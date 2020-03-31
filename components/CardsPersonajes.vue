@@ -12,7 +12,18 @@
     </v-img>
 
     <v-card-title class="pb-0">
-      Nombre
+      {{ item.title }}
     </v-card-title>
   </v-card>
 </template>
+
+<script>
+export default {
+  props: {
+    item: {
+      type: Object,
+      default: () => {}
+    }
+  }
+}
+</script>

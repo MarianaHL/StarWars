@@ -13,7 +13,9 @@
         Menu
       </v-col>
       <v-col cols="12">
-        <cards-list />
+        <cards-list
+          :list-of-items="films"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -24,6 +26,13 @@ import CardsList from '~/components/CardsList'
 export default {
   components: {
     CardsList
+  },
+
+  async asyncData ({ $axios }) {
+    const { results } = await $axios.$get('films')
+    return {
+      films: results
+    }
   }
 }
 </script>
