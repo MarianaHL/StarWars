@@ -51,7 +51,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'https://swapi.co/api'
+    baseURL: 'http://gateway.marvel.com/v1/public'
   },
   /*
   ** vuetify module configuration

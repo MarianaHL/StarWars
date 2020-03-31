@@ -6,13 +6,13 @@
     <v-img
       class="white--text align-end"
       height="200px"
-      src=""
+      :src="imageName"
     >
       <!-- /<v-card-title></v-card-title> -->
     </v-img>
 
     <v-card-title class="pb-0">
-      {{ item.title }}
+      {{ item.name }}
     </v-card-title>
   </v-card>
 </template>
@@ -23,6 +23,12 @@ export default {
     item: {
       type: Object,
       default: () => {}
+    }
+  },
+
+  computed: {
+    imageName () {
+      return `${this.item.thumbnail.path}/standard_xlarge.${this.item.thumbnail.extension}`
     }
   }
 }

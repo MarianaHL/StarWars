@@ -2,7 +2,7 @@
   <v-row>
     <v-col
       v-for="item of listOfItems"
-      :key="item.episode_id"
+      :key="item.name"
       cols="3"
     >
       <card-personajes

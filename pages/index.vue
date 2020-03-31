@@ -14,7 +14,7 @@
       </v-col>
       <v-col cols="12">
         <cards-list
-          :list-of-items="films"
+          :list-of-items="characters"
         />
       </v-col>
     </v-row>
@@ -29,9 +29,9 @@ export default {
   },
 
   async asyncData ({ $axios }) {
-    const { results } = await $axios.$get('films')
+    const { data } = await $axios.$get('characters?apikey=09cc91a7f9072e534000cf11ac56e109&ts=1585695057&hash=6938dd66ca4c564da4a7b48aaf141a96')
     return {
-      films: results
+      characters: data.results
     }
   }
 }
