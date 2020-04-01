@@ -10,9 +10,9 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12">
-        <cards-list
-          :list-of-items="characters"
+      <v-col>
+        <card-films
+          :item-details="item"
         />
       </v-col>
     </v-row>
@@ -20,16 +20,18 @@
 </template>
 
 <script>
-import CardsList from '~/components/CardsList'
+import CardFilms from '~/components/CardFilms'
 export default {
   components: {
-    CardsList
+    CardFilms
   },
 
-  async asyncData ({ $axios }) {
-    const { data } = await $axios.$get('characters?apikey=09cc91a7f9072e534000cf11ac56e109&ts=1585695057&hash=6938dd66ca4c564da4a7b48aaf141a96')
+  asyncData ({ params, redirect }) {
+    if (!params.item) {
+      redirect({ path: '/' })
+    }
     return {
-      characters: data.results
+      item: params.item
     }
   }
 }

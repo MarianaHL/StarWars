@@ -1,40 +1,53 @@
 <template>
   <v-card
-    max-width="400"
-    class="mx-auto"
+    color="#400D0D"
+    dark
+    class="card__film"
   >
-    <v-container>
-      <v-row dense>
-        <v-col
-          v-for="(item, i) in items"
-          :key="i"
-          cols="12"
-        >
-          <v-card
-            :color="item.color"
-            dark
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title
-                  class="headline"
-                  v-text="item.title"
-                ></v-card-title>
+    <div class="d-flex flex-no-wrap justify-space-between">
+      <div>
+        <v-card-title
+          class="headline"
+          v-text="itemDetails.name"
+        />
+        <v-card-subtitle>
+          Numero de comics {{ itemDetails.comics.available }}
+        </v-card-subtitle>
+        <v-card-subtitle>
+          Numero de series en las que aparece {{ itemDetails.series.available }}
+        </v-card-subtitle>
+      </div>
 
-                <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-              </div>
-
-              <v-avatar
-                class="ma-3"
-                size="125"
-                tile
-              >
-                <v-img :src="item.src"></v-img>
-              </v-avatar>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+      <v-avatar
+        class="ma-3"
+        size="300"
+        tile
+      >
+        <v-img :src="imageName" />
+      </v-avatar>
+    </div>
   </v-card>
 </template>
+
+<script>
+export default {
+  props: {
+    itemDetails: {
+      type: Object,
+      required: true
+    }
+  },
+
+  computed: {
+    imageName () {
+      return `${this.itemDetails.thumbnail.path}/standard_xlarge.${this.itemDetails.thumbnail.extension}`
+    }
+  }
+}
+</script>
+
+<style scoped>
+.card__film {
+  height: 350px;
+}
+</style>

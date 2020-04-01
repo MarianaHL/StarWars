@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="main__container">
     <v-content>
       <v-container>
         <nuxt />
@@ -9,7 +9,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy;By Mariana Hernandez Licona </span>
     </v-footer>
   </v-app>
 </template>
@@ -41,3 +41,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.main__container{
+  background: #C62828;
+}
+</style>

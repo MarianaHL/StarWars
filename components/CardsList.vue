@@ -3,7 +3,11 @@
     <v-col
       v-for="item of listOfItems"
       :key="item.name"
-      cols="3"
+      xs="12"
+      sm="6"
+      md="3"
+      lg="2"
+      xl="2"
     >
       <card-personajes
         :item="item"
